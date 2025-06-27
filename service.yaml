@@ -4,8 +4,6 @@ metadata:
   name: spring-petclinic
   labels:
     app: spring-petclinic
-  annotations:
-    service.beta.kubernetes.io/aws-load-balancer-type: alb
 spec:
   selector:
     app: spring-petclinic
