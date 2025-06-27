@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-petclinic
+  labels:
+    app: spring-petclinic
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spring-petclinic
+  template:
+    metadata:
+      labels:
+        app: spring-petclinic
+    spec:
+      resources:
+        requests:
+          memory: "256Mi"
+          cpu: "250m"
+        limits:
+          memory: "512Mi"
+          cpu: "500m"
+      # redinessProbe:
+      #   initialDelaySeconds: 10
+        # httpGet:
+        #    path: /
+        #    port: 8080   
+      # livenessProbe:
+      #   initialDelaySeconds: 15
+      #    httpGet: 
+      #       path: /
+      #       port: 8080
+      containers:
+      - name: spring-petclinic-ecr
+        image: 905418014070.dkr.ecr.ap-south-1.amazonaws.com/sprintpetclinic:v1.1
+        ports:
+        - containerPort: 8080
