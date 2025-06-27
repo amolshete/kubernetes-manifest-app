@@ -14,13 +14,6 @@ spec:
       labels:
         app: spring-petclinic
     spec:
-      resources:
-        requests:
-          memory: "256Mi"
-          cpu: "250m"
-        limits:
-          memory: "512Mi"
-          cpu: "500m"
       # redinessProbe:
       #   initialDelaySeconds: 10
         # httpGet:
@@ -33,6 +26,6 @@ spec:
       #       port: 8080
       containers:
       - name: spring-petclinic-ecr
-        image: 905418014070.dkr.ecr.ap-south-1.amazonaws.com/sprintpetclinic:v1.1
+        image: nginx:latest
         ports:
-        - containerPort: 8080
+        - containerPort: 80
